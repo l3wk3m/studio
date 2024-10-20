@@ -8,4 +8,8 @@ def index(request):
     return render(request, 'booking/index.html')
 
 def booker(request):
-    return HttpResponse("This is where you'll make bookings!")
+    template = 'booking/booking.html'
+    context = {
+        'booker': booker,
+    }
+    return render(request, template, context)

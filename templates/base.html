@@ -23,12 +23,62 @@
 </head>
 
 <body class="d-flex flex-column h-100 main-bg">
+    <!-- <header class="container-fluid fixed-top">
+        <div class="row">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h2 class="logo-font text-black my-0"><strong>Studio</strong> Booker</h2>
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <h3>Welcome to Studio Booker</h3>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">Product Management</a>
+                                {% endif %}
+                                <a href="" class="dropdown-item">My Profile</a>
+                                <a href="" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="" class="dropdown-item">Register</a>
+                                <a href="" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <p class="my-0">
+                                    {% if grand_total %}
+                                        ${{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        $0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header> -->
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">s<span class="red-o">tu</span>dio<span
+                        class="thin">|booker</span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -38,11 +88,36 @@
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
                             href="#">Home</a>
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'bookings' %}">Book a Studio Space</a>
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" aria-current="page"
+                            href="#">Blog</a>
+                        <ul class="list-inline list-unstyled text-left text-lg-right my-0">
+                            <li class="list-inline-item dropdown">
+                                <a class="text-black text-left nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="text-left">
+                                        <p class="my-0">Account</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                    {% if request.user.is_authenticated %}
+                                        {% if request.user.is_superuser %}
+                                            <a href="" class="dropdown-item">Product Management</a>
+                                        {% endif %}
+                                        <a href="" class="dropdown-item">My Profile</a>
+                                        <a href="" class="dropdown-item">Logout</a>
+                                    {% else %}
+                                        <a href="" class="dropdown-item">Register</a>
+                                        <a href="" class="dropdown-item">Login</a>
+                                    {% endif %}
+                                </div>
+                            </li>
+                        </ul>
                     </li>
 
                 </ul>
                 <span class="navbar-text text-muted">
-                    adventures of a software developer
+                    welcome to studio booker
                 </span>
             </div>
         </div>
