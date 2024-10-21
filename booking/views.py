@@ -13,3 +13,10 @@ def booker(request):
         'booker': booker,
     }
     return render(request, template, context)
+
+def blog(request):
+    template = 'booking/blog.html'
+    context = {
+        'blog': blog,
+    }
+    return render(request, template, context)
